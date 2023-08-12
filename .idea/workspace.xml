@@ -9,18 +9,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fafa1b71-832e-4668-8a48-5f6bad1b0ada" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/chirkov/firstSpringMvcProject/HelloController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContextMVC.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/hello_world.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/weba.txt" afterDir="false" />
+    <list default="true" id="fafa1b71-832e-4668-8a48-5f6bad1b0ada" name="Changes" comment="first controller from spring 6">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,8 +177,17 @@
       <workItem from="1691846012948" duration="238000" />
       <workItem from="1691846260270" duration="37000" />
       <workItem from="1691848848197" duration="871000" />
-      <workItem from="1691849727273" duration="6637000" />
+      <workItem from="1691849727273" duration="7831000" />
     </task>
+    <task id="LOCAL-00001" summary="first controller from spring 6">
+      <option name="closed" value="true" />
+      <created>1691866302855</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1691866302855</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -204,5 +203,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="first controller from spring 6" />
+    <option name="LAST_COMMIT_MESSAGE" value="first controller from spring 6" />
   </component>
 </project>
