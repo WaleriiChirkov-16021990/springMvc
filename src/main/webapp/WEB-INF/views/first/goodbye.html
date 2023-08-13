@@ -1,14 +1,16 @@
 <!DOCTYPE html>
-<html xmlns:th  lang="en">
+<html xmlns:th="http://www.w3.org/1999/xhtml" lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title goodbye</title>
 </head>
 <body>
 <p style="display: flex;justify-content: center;color: aquamarine;background-color: darkmagenta;height: min-content" >Goodbye</p>
-<a href="/first/hello">sayHello</a>
-<a href="/first/hello?name=Kirill&surname=Sharon">sayHello</a>
-<a href="/exit">sayExit</a>
+<a href="/first/hello">sayHello</a><br>
+<a href="/first/hello?name=Kirill&surname=Sharon">sayHelloParam</a><br>
+<a href="/exit">sayExit</a><br>
+
+<p th:text="${message}"></p><br>
 
 </body>
 </html>

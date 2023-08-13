@@ -9,7 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fafa1b71-832e-4668-8a48-5f6bad1b0ada" name="Changes" comment="all config in java.Class ? &#10;Co-authored-by: Chirkov;&#10;created SecondController.java&#10;and new views">
+    <list default="true" id="fafa1b71-832e-4668-8a48-5f6bad1b0ada" name="Changes" comment="описали 2 контроллера, и научились получать параметры из&#10;GET запроса!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/chirkov/firstSpringMvcProject/config/controllers/FirstController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/chirkov/firstSpringMvcProject/config/controllers/FirstController.java" afterDir="false" />
@@ -32,7 +32,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="wch" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -63,7 +63,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "wch",
+    "git-widget-placeholder": "wch1",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Users/Валерий Чирков/Documents/IntellijIDEA/springMvc",
     "node.js.detected.package.eslint": "true",
@@ -188,7 +188,7 @@
       <workItem from="1691846260270" duration="37000" />
       <workItem from="1691848848197" duration="871000" />
       <workItem from="1691849727273" duration="13629000" />
-      <workItem from="1691923353041" duration="4457000" />
+      <workItem from="1691923353041" duration="5907000" />
     </task>
     <task id="LOCAL-00001" summary="first controller from spring 6">
       <option name="closed" value="true" />
@@ -214,7 +214,15 @@
       <option name="project" value="LOCAL" />
       <updated>1691873841115</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="описали 2 контроллера, и научились получать параметры из&#10;GET запроса!">
+      <option name="closed" value="true" />
+      <created>1691932123956</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1691932123956</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -235,6 +243,7 @@
     <MESSAGE value="first controller from spring 6" />
     <MESSAGE value="add new config (web.xml in Java.class)" />
     <MESSAGE value="all config in java.Class ? &#10;Co-authored-by: Chirkov;&#10;created SecondController.java&#10;and new views" />
-    <option name="LAST_COMMIT_MESSAGE" value="all config in java.Class ? &#10;Co-authored-by: Chirkov;&#10;created SecondController.java&#10;and new views" />
+    <MESSAGE value="описали 2 контроллера, и научились получать параметры из&#10;GET запроса!" />
+    <option name="LAST_COMMIT_MESSAGE" value="описали 2 контроллера, и научились получать параметры из&#10;GET запроса!" />
   </component>
 </project>
