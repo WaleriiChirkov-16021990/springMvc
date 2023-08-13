@@ -27,6 +27,38 @@ public class FirstController {
         model.addAttribute("message","Hello, " + name + " " + surname + "!");
         return "first/hello";
     }
+
+    @GetMapping("/calc")
+    public String calc(@RequestParam(value = "b", required = false) int b,
+                       @RequestParam(value = "a", required = false) int a,
+                       @RequestParam(value = "action", required = false) String action,
+                       Model model) {
+        double result;
+        String actions = null;
+        switch (action) {
+            case "multiplication":
+                result = a * b;
+                actions = " * ";
+                break;
+            case "division":
+                result = a / (double) b;
+                actions = " / ";
+                break;
+            case "subtraction":
+                result = a - b;
+                actions = " - ";
+                break;
+            case "addition":
+                result = a + b;
+                actions = " + ";
+                break;
+            default:
+                result = 0;
+                break;
+        }
+        model.addAttribute("message", a + actions + b + " = " + result + ";");
+        return "first/calculater";
+    }
     @GetMapping("/bye")
     public String goodbye() {
         return "first/goodbye";
