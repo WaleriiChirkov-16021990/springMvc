@@ -36,5 +36,18 @@ public class PersonDAO {
     }
 
 
+    public void save(Person person) {
+        person.setId(++COUNT_PEOPLE);
+        this.people.add(person);
+    }
+
+    public void update(int id, Person updatePerson) {
+        Person personToBeUpdated = show(id);
+        personToBeUpdated.setAge(updatePerson.getAge());
+        personToBeUpdated.setEmail(updatePerson.getEmail());
+        personToBeUpdated.setSurname(updatePerson.getSurname());
+        personToBeUpdated.setName(updatePerson.getName());
+    }
+
 
 }
