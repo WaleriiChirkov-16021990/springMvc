@@ -52,6 +52,12 @@ public class PeopleController {
         return "redirect:/people";
     }
 
+    @DeleteMapping("/{id}")
+    public String delete(@PathVariable("id") int id, @ModelAttribute("person") Person person) {
+        personDAO.delete(id);
+        return "redirect:/people";
+    }
+
     public PersonDAO getPersonDAO() {
         return personDAO;
     }
