@@ -29,12 +29,6 @@ public class PeopleController {
         return "people/show";
     }
 
-//    @GetMapping("/new")
-//    public String newPerson(Model model) {
-//        model.addAttribute("person", new Person());
-//        return "people/new";
-//    }
-
     @GetMapping("/new")
     public String newPerson(@ModelAttribute("person") Person person) {
         return "people/new";
@@ -52,7 +46,7 @@ public class PeopleController {
     }
 
 
-    @PatchMapping("/{id}/edit")
+    @PatchMapping ("/{id}")
     public String update(@ModelAttribute("person") Person person, @PathVariable("id") int id) {
         personDAO.update(id, person);
         return "redirect:/people";
@@ -61,4 +55,11 @@ public class PeopleController {
     public PersonDAO getPersonDAO() {
         return personDAO;
     }
+
+
+    //    @GetMapping("/new")
+//    public String newPerson(Model model) {
+//        model.addAttribute("person", new Person());
+//        return "people/new";
+//    }
 }
