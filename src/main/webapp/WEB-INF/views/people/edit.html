@@ -18,11 +18,11 @@
     <br>
     <label for="age">Enter age</label>
     <input type="number" min="0" th:field="*{age}" id="age">
-    <div th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></div>
+    <div style="color: crimson" th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></div>
     <br>
     <label for="email">Enter email</label>
     <input type="email" th:field="*{email}" id="email"/>
-    <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
+    <p style="color: crimson" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
     <br>
     <input type="submit" value="Update!" /><br>
 

@@ -1,12 +1,14 @@
 package org.chirkov.firstSpringMvcProject.models;
 
-//import jakarta.validation.constraints.Email;
-//import jakarta.validation.constraints.NotEmpty;
-//import jakarta.validation.constraints.Size;
-
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
-import org.hibernate.validator.constraints.Email;
-import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.Range;
+
+//import jakarta.validation.constraints.Size;
+//import org.hibernate.validator.constraints.Email;
+//import org.hibernate.validator.constraints.NotEmpty;
 
 public class Person {
     private int id;
@@ -17,7 +19,7 @@ public class Person {
     @NotEmpty(message = "Surname should not be empty!")
     @Size(min = 3,max = 33, message = "Surname should 3-33 characters long!")
     private String surname;
-    @Size(min = 1,max = 333, message = "Age should be between 0 - 333 and ")
+    @Range(min = 1,max = 333, message = "Age should be between 1 - 333 and ")
     private int age;
     @NotEmpty(message = "Email should not be empty!")
     @Email(message = "Email should be valid")
