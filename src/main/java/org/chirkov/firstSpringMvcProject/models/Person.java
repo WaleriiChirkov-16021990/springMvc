@@ -1,10 +1,23 @@
 package org.chirkov.firstSpringMvcProject.models;
 
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
+
 public class Person {
     private int id;
+
+    @NotEmpty(message = "Name should not be empty!")
+    @Size(min = 3,max = 33, message = "First name should 3-33 characters long!")
     private String name;
+    @NotEmpty(message = "Surname should not be empty!")
+    @Size(min = 3,max = 33, message = "Surname should 3-33 characters long!")
     private String surname;
+
+    @Size(min = 0,max = 333, message = "Age should be between 0 - 333 and ")
     private int age;
+    @NotEmpty(message = "Email should not be empty!")
+    @Email(message = "Email should be valid")
     private String email;
 
 
