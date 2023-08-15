@@ -50,7 +50,7 @@ public class PeopleController {
 
 
     @PatchMapping ("/{id}")
-    public String update(@ModelAttribute("person") @Valid Person person, BindingResult bindingResult, @PathVariable("id") int id) {
+    public String update(@PathVariable("id") int id, @ModelAttribute("person") @Valid Person person, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "people/edit";
         }
@@ -69,7 +69,7 @@ public class PeopleController {
     }
 
 
-    //    @GetMapping("/new")
+    //@GetMapping("/new")
 //    public String newPerson(Model model) {
 //        model.addAttribute("person", new Person());
 //        return "people/new";
