@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/people")
 public class PeopleController {
     private final PersonDAO personDAO;
+
     @Autowired
     public PeopleController(PersonDAO personDAO) {
         this.personDAO = personDAO;
@@ -23,6 +24,7 @@ public class PeopleController {
         model.addAttribute("people", getPersonDAO().index());
         return "people/index";
     }
+
     @GetMapping("/{id}")
     public String show(@PathVariable("id") int id, Model model) { //получаем id из GET запроса и
         // передаем его в сигнатуру метода
@@ -32,7 +34,10 @@ public class PeopleController {
     }
 
     @GetMapping("/new")
-    public String newPerson(@ModelAttribute("person") Person person) {return "people/new";}
+    public String newPerson(@ModelAttribute("person") Person person) {
+        return "people/new";
+    }
+
     @PostMapping
     public String create(@ModelAttribute("person") @Valid Person person, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
@@ -49,7 +54,7 @@ public class PeopleController {
     }
 
 
-    @PatchMapping ("/{id}")
+    @PatchMapping("/{id}")
     public String update(@PathVariable("id") int id, @ModelAttribute("person") @Valid Person person, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "people/edit";
@@ -68,10 +73,4 @@ public class PeopleController {
         return personDAO;
     }
 
-
-    //@GetMapping("/new")
-//    public String newPerson(Model model) {
-//        model.addAttribute("person", new Person());
-//        return "people/new";
-//    }
 }
