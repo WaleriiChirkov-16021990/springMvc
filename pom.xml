@@ -17,20 +17,12 @@
 
   <dependencies>
 
-    <!-- https://mvnrepository.com/artifact/org.springframework.webflow/spring-webflow -->
-<!--    <dependency>-->
-<!--      <groupId>org.springframework.webflow</groupId>-->
-<!--      <artifactId>spring-webflow</artifactId>-->
-<!--      <version>3.0.0</version>-->
-<!--    </dependency>-->
-
 <!--     https://mvnrepository.com/artifact/org.slf4j/slf4j-api-->
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
       <version>2.0.7</version>
     </dependency>
-
 
     <dependency>
       <groupId>junit</groupId>
@@ -92,14 +84,6 @@
     </dependency>
 
 
-<!--    &lt;!&ndash; https://mvnrepository.com/artifact/jakarta.servlet/jakarta.servlet-api &ndash;&gt;-->
-<!--    <dependency>-->
-<!--      <groupId>jakarta.servlet</groupId>-->
-<!--      <artifactId>jakarta.servlet-api</artifactId>-->
-<!--      <version>6.0.0</version>-->
-<!--      <scope>provided</scope>-->
-<!--    </dependency>-->
-
 
 <!--    &lt;!&ndash; https://mvnrepository.com/artifact/org.springframework.webflow/spring-webflow &ndash;&gt;-->
     <dependency>
@@ -107,18 +91,6 @@
       <artifactId>spring-webflow</artifactId>
       <version>3.0.0</version>
     </dependency>
-
-
-
-    <!--    для tomcat 9.0-->
-<!--    &lt;!&ndash; https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api &ndash;&gt;-->
-<!--    <dependency>-->
-<!--      <groupId>javax.servlet</groupId>-->
-<!--      <artifactId>javax.servlet-api</artifactId>-->
-<!--      <version>4.0.1</version>-->
-<!--      <scope>provided</scope>-->
-<!--    </dependency>-->
-
 
     <!-- https://mvnrepository.com/artifact/jakarta.servlet/jakarta.servlet-api -->
     <dependency>
@@ -134,6 +106,17 @@
       <artifactId>postgresql</artifactId>
       <version>42.6.0</version>
     </dependency>
+
+
+    <!--    для tomcat 9.0-->
+    <!--    &lt;!&ndash; https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api &ndash;&gt;-->
+    <!--    <dependency>-->
+    <!--      <groupId>javax.servlet</groupId>-->
+    <!--      <artifactId>javax.servlet-api</artifactId>-->
+    <!--      <version>4.0.1</version>-->
+    <!--      <scope>provided</scope>-->
+    <!--    </dependency>-->
+
   </dependencies>
 
   <build>

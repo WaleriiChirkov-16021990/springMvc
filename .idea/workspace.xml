@@ -9,10 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fafa1b71-832e-4668-8a48-5f6bad1b0ada" name="Changes" comment="подключил бд postgresSQL используя&#10;jbdc template (ранее JBDC API)&#10;данные для подключения к БД &#10;положил в файл dataBase.properties.origin">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="fafa1b71-832e-4668-8a48-5f6bad1b0ada" name="Changes" comment="реализовал пакетное обновление, производительность на очень высоком уровне">
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/chirkov/firstSpringMvcProject/config/SpringConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/chirkov/firstSpringMvcProject/config/SpringConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/batch/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/batch/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/people/show.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/people/show.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -421,7 +420,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692372037959</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="реализовал пакетное обновление, производительность на очень высоком уровне">
+      <option name="closed" value="true" />
+      <created>1692442927642</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1692442927642</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -454,7 +461,8 @@
     <MESSAGE value="подключил бд postgresSQL" />
     <MESSAGE value="подключил бд postgresSQL используя&#10;jbdc template (ранее JBDC API)" />
     <MESSAGE value="подключил бд postgresSQL используя&#10;jbdc template (ранее JBDC API)&#10;данные для подключения к БД &#10;положил в файл dataBase.properties.origin" />
-    <option name="LAST_COMMIT_MESSAGE" value="подключил бд postgresSQL используя&#10;jbdc template (ранее JBDC API)&#10;данные для подключения к БД &#10;положил в файл dataBase.properties.origin" />
+    <MESSAGE value="реализовал пакетное обновление, производительность на очень высоком уровне" />
+    <option name="LAST_COMMIT_MESSAGE" value="реализовал пакетное обновление, производительность на очень высоком уровне" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
