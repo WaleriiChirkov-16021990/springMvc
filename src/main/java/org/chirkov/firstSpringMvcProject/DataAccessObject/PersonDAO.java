@@ -13,6 +13,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * @author : @Valerii_Chirkov $tlg
+ * This class is responsible for PostgreSQL 15
+ */
 @Component
 public class PersonDAO {
     private final JdbcTemplate jdbcTemplate;
@@ -28,6 +32,14 @@ public class PersonDAO {
 
     public Person show(int id) {
         return jdbcTemplate.query("SELECT * FROM person WHERE id=?", new Object[]{id}, new BeanPropertyRowMapper<>(Person.class))
+                .stream().findAny().orElse(null);
+    }
+    /*  /////////////////
+        перегрузили метод show для поиска совпадений в базе данных по введенному email
+        //////////////////////
+     */
+    public Person show(String email) {
+        return jdbcTemplate.query("SELECT * FROM person WHERE email=?", new Object[]{email}, new BeanPropertyRowMapper<>(Person.class))
                 .stream().findAny().orElse(null);
     }
 
