@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.Random;
 
 /**
@@ -31,26 +32,33 @@ public class PersonDAO {
     }
 
     public Person show(int id) {
-        return jdbcTemplate.query("SELECT * FROM person WHERE id=?", new Object[]{id}, new BeanPropertyRowMapper<>(Person.class))
+        return jdbcTemplate.query("SELECT * FROM person WHERE id=?"
+                        , new Object[]{id}
+                        , new BeanPropertyRowMapper<>(Person.class))
                 .stream().findAny().orElse(null);
     }
+
     /*  /////////////////
         перегрузили метод show для поиска совпадений в базе данных по введенному email
         //////////////////////
      */
-    public Person show(String email) {
-        return jdbcTemplate.query("SELECT * FROM person WHERE email=?", new Object[]{email}, new BeanPropertyRowMapper<>(Person.class))
-                .stream().findAny().orElse(null);
+    public Optional<Person> show(String email) {
+        return jdbcTemplate.query("SELECT * FROM person WHERE email=?"
+                        , new Object[]{email}
+                        , new BeanPropertyRowMapper<>(Person.class))
+                .stream().findAny();
     }
 
 
     public void save(Person person) {
-        jdbcTemplate.update("INSERT INTO person (name, surname, age, email) VALUES(?,?,?,?)"
-                , person.getName(), person.getSurname(), person.getAge(), person.getEmail());
+        jdbcTemplate.update("INSERT INTO person (name, surname, age, email, address) VALUES(?,?,?,?,?)"
+                , person.getName(), person.getSurname(), person.getAge(), person.getEmail(), person.getAddress());
     }
 
     public void update(int id, Person updatePerson) {
-        jdbcTemplate.update("UPDATE person SET name=?, surname=?, age=?, email=? WHERE id=?", updatePerson.getName(), updatePerson.getSurname(), updatePerson.getAge(), updatePerson.getEmail(), id);
+        jdbcTemplate.update("UPDATE person SET name=?, surname=?, age=?, email=?, address=? WHERE id=?"
+                , updatePerson.getName(), updatePerson.getSurname(), updatePerson.getAge()
+                , updatePerson.getEmail(), updatePerson.getAddress(), id);
     }
 
     public void delete(int id) {
@@ -63,15 +71,17 @@ public class PersonDAO {
     ////////////////////////////////........../////////////////
 
     public void batchUpdate() {
-        List<Person> people = createCountPeople(1000);
+        List<Person> people = createCountPeople(200);
         long start = System.currentTimeMillis();
-        jdbcTemplate.batchUpdate("INSERT INTO person (name, surname, age, email) VALUES (?,?,?,?)", new BatchPreparedStatementSetter() {
+        jdbcTemplate.batchUpdate("INSERT INTO person (name, surname, age, email, address) VALUES (?,?,?,?,?)"
+                , new BatchPreparedStatementSetter() {
                     @Override
                     public void setValues(PreparedStatement ps, int i) throws SQLException {
                         ps.setString(1, people.get(i).getName());
                         ps.setString(2, people.get(i).getSurname());
                         ps.setInt(3, people.get(i).getAge());
                         ps.setString(4, people.get(i).getEmail());
+                        ps.setString(5, people.get(i).getAddress());
                     }
 
                     @Override
@@ -80,27 +90,29 @@ public class PersonDAO {
                     }
                 });
         long end = System.currentTimeMillis();
-        System.out.printf("Time batchUpdate: d" ,(end -start) /1000);
+        System.out.printf("Time batchUpdate: %d", (end - start) / 1000);
     }
 
     public void testMultipleUpdate() {
-        List<Person> people = createCountPeople(1000);
+        List<Person> people = createCountPeople(100);
         long start_before = System.currentTimeMillis();
         for (Person person : people
-             ) {
-            jdbcTemplate.update("INSERT INTO person (name, surname, age, email) VALUES (?,?,?,?)", person.getName(), person.getSurname(), person.getAge(), person.getEmail() );
+        ) {
+            jdbcTemplate.update("INSERT INTO person (name, surname, age, email, address) VALUES (?,?,?,?,?)"
+                    , person.getName(), person.getSurname(), person.getAge(), person.getEmail(), person.getAddress());
         }
         long end_after = System.currentTimeMillis();
-        System.out.printf("Время обнослвения поочереди = %d", (end_after-start_before)/1000);
+        System.out.printf("Время обновлвения поочереди = %d", (end_after - start_before) / 1000);
     }
 
     private List<Person> createCountPeople(int count) {
         List<Person> people = new ArrayList<Person>();
         Random random = new Random();
         for (int i = 0; i < count; i++) {
-            people.add(new Person(i,"John" + String.valueOf(i), "Doe" + String.valueOf(i),random.nextInt(4,120),"john.doe@gmail.com"));
+            people.add(new Person(i, "John" + String.valueOf(i), "Doe" + String.valueOf(i)
+                    , random.nextInt(4, 120), "john" + String.valueOf(i) + ".doe@gmail.com", "Russian, Tver, 170039"));
         }
-        System.out.printf(String.valueOf(people.size()));
+//        System.out.printf(String.valueOf(people.size()));
         return people;
     }
 }

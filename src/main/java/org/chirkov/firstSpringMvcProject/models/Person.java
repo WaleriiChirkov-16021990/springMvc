@@ -2,6 +2,7 @@ package org.chirkov.firstSpringMvcProject.models;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import org.hibernate.validator.constraints.Range;
 
@@ -20,14 +21,18 @@ public class Person {
     @NotEmpty(message = "Email should not be empty!")
     @Email(message = "Email should be valid")
     private String email;
+    // Страна, Город, индекс(6 цифр)
+    @Pattern(regexp = "[A-Z]\\w+, [A-Z]\\w+, \\d{6}", message = "Your address should be in this format : 'Country, City, Postal code (6 digits)'")
+    private String address;
 
 
-    public Person(int id,String name, String surname, int age, String email) {
+    public Person(int id, String name, String surname, int age, String email, String address) {
         this.id = id;
         this.name = name;
         this.surname = surname;
         this.age = age;
         this.email = email;
+        this.address = address;
     }
 
     public Person() {
@@ -70,5 +75,13 @@ public class Person {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }

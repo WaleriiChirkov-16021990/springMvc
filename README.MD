@@ -120,3 +120,7 @@ INSERT INTO Actor_Movie (actor_id, movie_id) VALUES (6, 7);
 
 select Actor.name , Movie.name FROM Actor JOIN Actor_Movie AM on Actor.actor_id = AM.actor_id JOIN movie
 ON AM.movie_id = Movie.movie_id;
+
+////////////////////////////////////////////////////////////////
+OPTIONAL<Person> in method show() for PerdonDAO ? не позволяет обновить юзера без изменения почты
+////////////////////////////////////////////////////////////////
