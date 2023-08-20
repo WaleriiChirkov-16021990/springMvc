@@ -1,57 +1,118 @@
 package org.chirkov.firstSpringMvcProject.DataAccessObject;
 
 import org.chirkov.firstSpringMvcProject.models.Person;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BatchPreparedStatementSetter;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
-
+;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import java.util.Random;
+
+/**
+ * @author : @Valerii_Chirkov $tlg
+ * This class is responsible for PostgreSQL 15
+ */
 @Component
 public class PersonDAO {
-    private static int COUNT_PEOPLE;
-    private final List<Person> people;
+    private final JdbcTemplate jdbcTemplate;
 
-    {
-        people = new ArrayList<>();
-        people.add(new Person(++COUNT_PEOPLE,"Tom","Johns",20, "god@mail.ru"));
-        people.add(new Person(++COUNT_PEOPLE,"Clark","Kent",29, "god1@mail.ru"));
-        people.add(new Person(++COUNT_PEOPLE,"Lao","Czi",28, "god2@mail.ru"));
-        people.add(new Person(++COUNT_PEOPLE,"Hero","Js",27, "god3@mail.ru"));
-        people.add(new Person(++COUNT_PEOPLE,"Java","Utils",26, "god4@mail.ru"));
-        people.add(new Person(++COUNT_PEOPLE,"Development","Kit",25, "god5@mail.ru"));
-        people.add(new Person(++COUNT_PEOPLE,"Java","Runtime",24, "god6@mail.ru"));
-        people.add(new Person(++COUNT_PEOPLE,"Google","Dec",30, "god7@mail.ru"));
-        people.add(new Person(++COUNT_PEOPLE,"Linux","Kali",32, "god8@mail.ru"));
-        people.add(new Person(++COUNT_PEOPLE,"Tod","Shark",35, "god9@mail.ru"));
-        people.add(new Person(++COUNT_PEOPLE,"Jerry","Mouse",40, "god10@mail.ru"));
-        people.add(new Person(++COUNT_PEOPLE,"water","Drop",50, "god11@mail.ru"));
+    @Autowired
+    public PersonDAO(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
     }
 
-
     public List<Person> index() {
-        return people;
+        return jdbcTemplate.query("SELECT * FROM person", new BeanPropertyRowMapper<>(Person.class));
     }
 
     public Person show(int id) {
-        return people.stream().filter(person -> person.getId() == id).findAny().orElse(null);
+        return jdbcTemplate.query("SELECT * FROM person WHERE id=?"
+                        , new Object[]{id}
+                        , new BeanPropertyRowMapper<>(Person.class))
+                .stream().findAny().orElse(null);
+    }
+
+    /*  /////////////////
+        перегрузили метод show для поиска совпадений в базе данных по введенному email
+        //////////////////////
+     */
+    public Optional<Person> show(String email) {
+        return jdbcTemplate.query("SELECT * FROM person WHERE email=?"
+                        , new Object[]{email}
+                        , new BeanPropertyRowMapper<>(Person.class))
+                .stream().findAny();
     }
 
 
     public void save(Person person) {
-        person.setId(++COUNT_PEOPLE);
-        this.people.add(person);
+        jdbcTemplate.update("INSERT INTO person (name, surname, age, email, address) VALUES(?,?,?,?,?)"
+                , person.getName(), person.getSurname(), person.getAge(), person.getEmail(), person.getAddress());
     }
 
     public void update(int id, Person updatePerson) {
-        Person personToBeUpdated = show(id);
-        personToBeUpdated.setAge(updatePerson.getAge());
-        personToBeUpdated.setEmail(updatePerson.getEmail());
-        personToBeUpdated.setSurname(updatePerson.getSurname());
-        personToBeUpdated.setName(updatePerson.getName());
+        jdbcTemplate.update("UPDATE person SET name=?, surname=?, age=?, email=?, address=? WHERE id=?"
+                , updatePerson.getName(), updatePerson.getSurname(), updatePerson.getAge()
+                , updatePerson.getEmail(), updatePerson.getAddress(), id);
     }
 
     public void delete(int id) {
-        people.removeIf(p -> p.getId() == id);
+        jdbcTemplate.update("DELETE FROM person WHERE id=?", id);
     }
 
 
+    ////////////////////////////////////////////////////////////////
+    ////////// Тестируем производительность пакетной вставки
+    ////////////////////////////////........../////////////////
+
+    public void batchUpdate() {
+        List<Person> people = createCountPeople(200);
+        long start = System.currentTimeMillis();
+        jdbcTemplate.batchUpdate("INSERT INTO person (name, surname, age, email, address) VALUES (?,?,?,?,?)"
+                , new BatchPreparedStatementSetter() {
+                    @Override
+                    public void setValues(PreparedStatement ps, int i) throws SQLException {
+                        ps.setString(1, people.get(i).getName());
+                        ps.setString(2, people.get(i).getSurname());
+                        ps.setInt(3, people.get(i).getAge());
+                        ps.setString(4, people.get(i).getEmail());
+                        ps.setString(5, people.get(i).getAddress());
+                    }
+
+                    @Override
+                    public int getBatchSize() {
+                        return people.size();
+                    }
+                });
+        long end = System.currentTimeMillis();
+        System.out.printf("Time batchUpdate: %d", (end - start) / 1000);
+    }
+
+    public void testMultipleUpdate() {
+        List<Person> people = createCountPeople(100);
+        long start_before = System.currentTimeMillis();
+        for (Person person : people
+        ) {
+            jdbcTemplate.update("INSERT INTO person (name, surname, age, email, address) VALUES (?,?,?,?,?)"
+                    , person.getName(), person.getSurname(), person.getAge(), person.getEmail(), person.getAddress());
+        }
+        long end_after = System.currentTimeMillis();
+        System.out.printf("Время обновлвения поочереди = %d", (end_after - start_before) / 1000);
+    }
+
+    private List<Person> createCountPeople(int count) {
+        List<Person> people = new ArrayList<Person>();
+        Random random = new Random();
+        for (int i = 0; i < count; i++) {
+            people.add(new Person(i, "John" + String.valueOf(i), "Doe" + String.valueOf(i)
+                    , random.nextInt(4, 120), "john" + String.valueOf(i) + ".doe@gmail.com", "Russian, Tver, 170039"));
+        }
+//        System.out.printf(String.valueOf(people.size()));
+        return people;
+    }
 }
