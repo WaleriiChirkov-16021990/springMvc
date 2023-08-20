@@ -9,16 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fafa1b71-832e-4668-8a48-5f6bad1b0ada" name="Changes" comment="добавляем продвинутую валидацию для ввода данных &#10;нового пользователя &#10;(проверка на уникальность email);">
+    <list default="true" id="fafa1b71-832e-4668-8a48-5f6bad1b0ada" name="Changes" comment="добавил продвинутую валидацию для ввода данных &#10;нового пользователя &#10;(проверка на уникальность email) заданную регулярным выражением;">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/chirkov/firstSpringMvcProject/controllers/AdminController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/page.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.MD" beforeDir="false" afterPath="$PROJECT_DIR$/README.MD" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/chirkov/firstSpringMvcProject/DataAccessObject/PersonDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/chirkov/firstSpringMvcProject/DataAccessObject/PersonDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/chirkov/firstSpringMvcProject/controllers/PeopleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/chirkov/firstSpringMvcProject/controllers/PeopleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/chirkov/firstSpringMvcProject/models/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/chirkov/firstSpringMvcProject/models/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/chirkov/firstSpringMvcProject/util/PersonValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/chirkov/firstSpringMvcProject/util/PersonValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/people/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/people/edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/people/new.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/people/new.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/people/show.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/people/show.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,8 +22,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -83,7 +77,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "editor.breadcrumbs",
     "spring.configuration.checksum": "9665ebc22800f0d59a7f8537699ebed5",
     "vue.rearranger.settings.migration": "true"
   },
@@ -308,7 +302,8 @@
       <workItem from="1692430541345" duration="5357000" />
       <workItem from="1692518751639" duration="471000" />
       <workItem from="1692519240330" duration="660000" />
-      <workItem from="1692519909923" duration="11890000" />
+      <workItem from="1692519909923" duration="12632000" />
+      <workItem from="1692552902183" duration="3581000" />
     </task>
     <task id="LOCAL-00001" summary="first controller from spring 6">
       <option name="closed" value="true" />
@@ -454,7 +449,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692540122883</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="добавил продвинутую валидацию для ввода данных &#10;нового пользователя &#10;(проверка на уникальность email) заданную регулярным выражением;">
+      <option name="closed" value="true" />
+      <created>1692549659636</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1692549659636</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -490,7 +493,8 @@
     <MESSAGE value="реализовал пакетное обновление, производительность на очень высоком уровне" />
     <MESSAGE value="убрал лишние комментарии в коде" />
     <MESSAGE value="добавляем продвинутую валидацию для ввода данных &#10;нового пользователя &#10;(проверка на уникальность email);" />
-    <option name="LAST_COMMIT_MESSAGE" value="добавляем продвинутую валидацию для ввода данных &#10;нового пользователя &#10;(проверка на уникальность email);" />
+    <MESSAGE value="добавил продвинутую валидацию для ввода данных &#10;нового пользователя &#10;(проверка на уникальность email) заданную регулярным выражением;" />
+    <option name="LAST_COMMIT_MESSAGE" value="добавил продвинутую валидацию для ввода данных &#10;нового пользователя &#10;(проверка на уникальность email) заданную регулярным выражением;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
