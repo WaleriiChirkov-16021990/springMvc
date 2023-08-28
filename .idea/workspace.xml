@@ -9,10 +9,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fafa1b71-832e-4668-8a48-5f6bad1b0ada" name="Changes" comment="добавил продвинутую валидацию для ввода данных &#10;нового пользователя &#10;(проверка на уникальность email) заданную регулярным выражением;">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/chirkov/firstSpringMvcProject/controllers/AdminController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/page.html" afterDir="false" />
+    <list default="true" id="fafa1b71-832e-4668-8a48-5f6bad1b0ada" name="Changes" comment="added new a drop-down list for select user as an admin person.">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/hibernate.properties.origin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/chirkov/firstSpringMvcProject/config/SpringConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/chirkov/firstSpringMvcProject/config/SpringConfig.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +38,10 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="JavaeeView">
+    <option name="frameworksView" value="false" />
+    <option name="showModules" value="false" />
+  </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
     <option name="FILTER_WARNINGS" value="false" />
@@ -48,10 +55,9 @@
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;customColor&quot;: &quot;&quot;,
-  &quot;associatedIndex&quot;: -1
-}</component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 3
+}]]></component>
   <component name="ProjectId" id="2TspfeTy3RqHbbvs2dn6tZtvKon" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -68,7 +74,7 @@
     "database.data.extractors.current.export.id": "Comma-separated (CSV)_id",
     "git-widget-placeholder": "wch7__advance__validation",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/Валерий Чирков/Documents/IntellijIDEA/springMvc",
+    "last_opened_file_path": "C:/Users/Валерий Чирков/Documents/IntellijIDEA/springMvc/src/main/resources",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -77,7 +83,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "editor.breadcrumbs",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
     "spring.configuration.checksum": "9665ebc22800f0d59a7f8537699ebed5",
     "vue.rearranger.settings.migration": "true"
   },
@@ -88,6 +94,9 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Валерий Чирков\Documents\IntellijIDEA\springMvc\src\main\resources" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Валерий Чирков\Documents\IntellijIDEA\springMvc\src\main\webapp\WEB-INF" />
       <recent name="C:\Users\Валерий Чирков\Documents\IntellijIDEA\springMvc\src\main\java" />
@@ -303,7 +312,10 @@
       <workItem from="1692518751639" duration="471000" />
       <workItem from="1692519240330" duration="660000" />
       <workItem from="1692519909923" duration="12632000" />
-      <workItem from="1692552902183" duration="3581000" />
+      <workItem from="1692552902183" duration="3998000" />
+      <workItem from="1692557911817" duration="201000" />
+      <workItem from="1692815103532" duration="10055000" />
+      <workItem from="1693255140050" duration="1953000" />
     </task>
     <task id="LOCAL-00001" summary="first controller from spring 6">
       <option name="closed" value="true" />
@@ -457,7 +469,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692549659636</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="added new a drop-down list for select user as an admin person.">
+      <option name="closed" value="true" />
+      <created>1692557563623</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1692557563623</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -494,7 +514,8 @@
     <MESSAGE value="убрал лишние комментарии в коде" />
     <MESSAGE value="добавляем продвинутую валидацию для ввода данных &#10;нового пользователя &#10;(проверка на уникальность email);" />
     <MESSAGE value="добавил продвинутую валидацию для ввода данных &#10;нового пользователя &#10;(проверка на уникальность email) заданную регулярным выражением;" />
-    <option name="LAST_COMMIT_MESSAGE" value="добавил продвинутую валидацию для ввода данных &#10;нового пользователя &#10;(проверка на уникальность email) заданную регулярным выражением;" />
+    <MESSAGE value="added new a drop-down list for select user as an admin person." />
+    <option name="LAST_COMMIT_MESSAGE" value="added new a drop-down list for select user as an admin person." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

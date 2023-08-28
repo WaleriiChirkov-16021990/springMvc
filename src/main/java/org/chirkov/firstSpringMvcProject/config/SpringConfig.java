@@ -10,6 +10,10 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.orm.hibernate5.HibernateTransactionManager;
+import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
+import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -19,14 +23,18 @@ import org.thymeleaf.spring6.view.ThymeleafViewResolver;
 
 import javax.sql.DataSource;
 import java.util.Objects;
+import java.util.Properties;
 
 @Configuration
 @ComponentScan("org.chirkov.firstSpringMvcProject")
 @EnableWebMvc
-@PropertySource("classpath:dataBase.properties")
+//@PropertySource("classpath:dataBase.properties")
+@PropertySource("classpath:hibernate.properties")
+@EnableTransactionManagement
 public class SpringConfig implements WebMvcConfigurer {
     private final ApplicationContext applicationContext;
     private final Environment environment;
+
 
     @Autowired
     public SpringConfig(ApplicationContext applicationContext, Environment environment) {
@@ -58,24 +66,60 @@ public class SpringConfig implements WebMvcConfigurer {
         resolver.setTemplateEngine(templateEngine());
         registry.viewResolver(resolver);
     }
-//    jdbc template
+    //    jdbc template
     @Bean
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName(Objects.requireNonNull(this.environment.getProperty("driver")));
-        dataSource.setUrl(this.environment.getProperty("url"));
-        dataSource.setUsername(this.environment.getProperty("user"));
-        dataSource.setPassword(this.environment.getProperty("password"));
+//        JDBC
+//        dataSource.setDriverClassName(Objects.requireNonNull(this.environment.getProperty("driver")));
+//        dataSource.setUrl(this.environment.getProperty("url"));
+//        dataSource.setUsername(this.environment.getProperty("user"));
+//        dataSource.setPassword(this.environment.getProperty("password"));
+
+//        hibernate
+        dataSource.setDriverClassName(Objects.requireNonNull(this.environment.getRequiredProperty("hibernate.driver_class")));
+        dataSource.setUrl(this.environment.getRequiredProperty("hibernate.connection.url"));
+        dataSource.setUsername(this.environment.getRequiredProperty("hibernate.connection.username"));
+        dataSource.setPassword(this.environment.getRequiredProperty("hibernate.connection.password"));
 
         return dataSource;
     }
 
+//    @Bean
+//    public JdbcTemplate jdbcTemplate() {
+//        return new JdbcTemplate(dataSource());
+//    }
+
+
+    //hibernate
+    private Properties hibernateProperties() {
+        Properties properties = new Properties();
+        properties.put("hibernate.dialect", environment.getRequiredProperty("hibernate.dialect"));
+        properties.put("hibernate.show_sql", environment.getRequiredProperty("hibernate.show_sql"));
+
+        return properties;
+    }
+
     @Bean
-    public JdbcTemplate jdbcTemplate() {
-        return new JdbcTemplate(dataSource());
+    public LocalSessionFactoryBean sessionFactoryBean() {
+        LocalSessionFactoryBean sessionFactoryBean = new LocalSessionFactoryBean();
+        sessionFactoryBean.setDataSource(dataSource());
+        sessionFactoryBean.setPackagesToScan("ru.chirkov.springMvc.models");
+        sessionFactoryBean.setHibernateProperties(hibernateProperties());
+
+        return sessionFactoryBean;
+    }
+
+    @Bean
+    public PlatformTransactionManager hibernateTransactionManager() {
+        HibernateTransactionManager transactionManager = new HibernateTransactionManager();
+        transactionManager.setSessionFactory(sessionFactoryBean().getObject());
+
+        return transactionManager;
     }
 
     public Environment getEnvironment() {
         return environment;
     }
 }
+
