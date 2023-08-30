@@ -11,6 +11,7 @@ import org.springframework.core.env.Environment;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
+//import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -28,7 +29,6 @@ import java.util.Properties;
 @Configuration
 @ComponentScan("org.chirkov.firstSpringMvcProject")
 @EnableWebMvc
-//@PropertySource("classpath:dataBase.properties")
 @PropertySource("classpath:hibernate.properties")
 @EnableTransactionManagement
 public class SpringConfig implements WebMvcConfigurer {
@@ -48,6 +48,7 @@ public class SpringConfig implements WebMvcConfigurer {
         templateResolver.setApplicationContext(this.applicationContext);
         templateResolver.setPrefix("/WEB-INF/views/");
         templateResolver.setSuffix(".html");
+        templateResolver.setCharacterEncoding("UTF-8");
         return templateResolver;
     }
 
@@ -64,6 +65,7 @@ public class SpringConfig implements WebMvcConfigurer {
         WebMvcConfigurer.super.configureViewResolvers(registry);
         ThymeleafViewResolver resolver = new ThymeleafViewResolver();
         resolver.setTemplateEngine(templateEngine());
+        resolver.setCharacterEncoding("UTF-8");
         registry.viewResolver(resolver);
     }
     //    jdbc template
@@ -104,7 +106,7 @@ public class SpringConfig implements WebMvcConfigurer {
     public LocalSessionFactoryBean sessionFactoryBean() {
         LocalSessionFactoryBean sessionFactoryBean = new LocalSessionFactoryBean();
         sessionFactoryBean.setDataSource(dataSource());
-        sessionFactoryBean.setPackagesToScan("org/chirkov/firstSpringMvcProject/models");
+        sessionFactoryBean.setPackagesToScan("org.chirkov.firstSpringMvcProject.models");
         sessionFactoryBean.setHibernateProperties(hibernateProperties());
 
         return sessionFactoryBean;

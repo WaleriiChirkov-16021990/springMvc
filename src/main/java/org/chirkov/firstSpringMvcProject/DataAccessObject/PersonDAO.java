@@ -1,13 +1,13 @@
 package org.chirkov.firstSpringMvcProject.DataAccessObject;
 
+import jakarta.transaction.Transactional;
 import org.chirkov.firstSpringMvcProject.models.Person;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 //import org.springframework.transaction.annotation.Transactional;
-;
-import javax.transaction.Transactional;
+//import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -31,8 +31,7 @@ public class PersonDAO {
         Session session = sessionFactory.getCurrentSession();
 
 //        обычный hibernate код
-        List<Person> personList = session.createQuery("select p from Person p", Person.class).getResultList();
-        return personList;
+        return session.createQuery("select p from Person p", Person.class).getResultList();
     }
 
     public Person show(int id) {

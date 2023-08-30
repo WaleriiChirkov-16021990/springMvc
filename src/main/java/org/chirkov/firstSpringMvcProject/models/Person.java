@@ -1,12 +1,12 @@
 package org.chirkov.firstSpringMvcProject.models;
 
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import org.hibernate.validator.constraints.Range;
 
-import javax.persistence.*;
 
 @Entity
 @Table(name = "Person")

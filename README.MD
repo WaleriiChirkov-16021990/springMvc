@@ -117,6 +117,14 @@ INSERT INTO Actor_Movie (actor_id, movie_id) VALUES (5, 6);
 INSERT INTO Actor_Movie (actor_id, movie_id) VALUES (6, 6);
 INSERT INTO Actor_Movie (actor_id, movie_id) VALUES (6, 7);
 
+driver_class=org.postgresql.Driver
+connection.url=jdbc:postgresql://localhost:5432/first_db
+connection.username=postgres
+connection.password=1Z2x3c4v
+
+dialect=org.hibernate.dialect.PostgreSQL10Dialect
+show_sql=true
+
 
 select Actor.name , Movie.name FROM Actor JOIN Actor_Movie AM on Actor.actor_id = AM.actor_id JOIN movie
 ON AM.movie_id = Movie.movie_id;
