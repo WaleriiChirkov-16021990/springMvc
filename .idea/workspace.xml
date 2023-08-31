@@ -9,9 +9,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fafa1b71-832e-4668-8a48-5f6bad1b0ada" name="Changes" comment="after PersonDAO">
+    <list default="true" id="fafa1b71-832e-4668-8a48-5f6bad1b0ada" name="Changes" comment="Done hibernate project CRUD application is successful">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/chirkov/firstSpringMvcProject/repositories/PeopleRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/chirkov/firstSpringMvcProject/services/PeopleService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/chirkov/firstSpringMvcProject/DataAccessObject/PersonDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/chirkov/firstSpringMvcProject/DataAccessObject/PersonDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/chirkov/firstSpringMvcProject/DataAccessObject/PersonDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/chirkov/firstSpringMvcProject/config/SpringConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/chirkov/firstSpringMvcProject/config/SpringConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/chirkov/firstSpringMvcProject/controllers/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/chirkov/firstSpringMvcProject/controllers/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/chirkov/firstSpringMvcProject/controllers/BatchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/chirkov/firstSpringMvcProject/controllers/BatchController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/chirkov/firstSpringMvcProject/controllers/PeopleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/chirkov/firstSpringMvcProject/controllers/PeopleController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/chirkov/firstSpringMvcProject/util/PersonValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/chirkov/firstSpringMvcProject/util/PersonValidator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -22,15 +29,16 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="wch7_hibernate" />
+        <entry key="$PROJECT_DIR$" value="wch7_hibernate_home_2" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -69,7 +77,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "database.data.extractors.current.export.id": "Comma-separated (CSV)_id",
-    "git-widget-placeholder": "wch7__hibernate__home",
+    "git-widget-placeholder": "wch8__JPA",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Users/Валерий Чирков/Documents/IntellijIDEA/springMvc/src/main/resources",
     "node.js.detected.package.eslint": "true",
@@ -484,7 +492,15 @@
       <option name="project" value="LOCAL" />
       <updated>1693257364663</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Done hibernate project CRUD application is successful">
+      <option name="closed" value="true" />
+      <created>1693507776814</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1693507776814</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -523,7 +539,8 @@
     <MESSAGE value="добавил продвинутую валидацию для ввода данных &#10;нового пользователя &#10;(проверка на уникальность email) заданную регулярным выражением;" />
     <MESSAGE value="added new a drop-down list for select user as an admin person." />
     <MESSAGE value="after PersonDAO" />
-    <option name="LAST_COMMIT_MESSAGE" value="after PersonDAO" />
+    <MESSAGE value="Done hibernate project CRUD application is successful" />
+    <option name="LAST_COMMIT_MESSAGE" value="Done hibernate project CRUD application is successful" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

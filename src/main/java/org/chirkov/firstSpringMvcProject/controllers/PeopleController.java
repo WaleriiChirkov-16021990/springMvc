@@ -1,8 +1,8 @@
 package org.chirkov.firstSpringMvcProject.controllers;
 
 import jakarta.validation.Valid;
-import org.chirkov.firstSpringMvcProject.DataAccessObject.PersonDAO;
 import org.chirkov.firstSpringMvcProject.models.Person;
+import org.chirkov.firstSpringMvcProject.services.PeopleService;
 import org.chirkov.firstSpringMvcProject.util.PersonValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,18 +13,20 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 @RequestMapping("/people")
 public class PeopleController {
-    private final PersonDAO personDAO;
+//    private final PersonDAO personDAO;
+    private final PeopleService peopleService;
     private final PersonValidator personValidator;
 
     @Autowired
-    public PeopleController(PersonDAO personDAO, PersonValidator personValidator) {
-        this.personDAO = personDAO;
+    public PeopleController( PeopleService peopleService, PersonValidator personValidator) {
+        this.peopleService = peopleService;
+//        this.personDAO = personDAO;
         this.personValidator = personValidator;
     }
 
     @GetMapping
     public String index(Model model) { //получим всех людей из DAO
-        model.addAttribute("people", getPersonDAO().index());
+        model.addAttribute("people", peopleService.findAll());
         return "people/index";
     }
 
@@ -32,7 +34,7 @@ public class PeopleController {
     public String show(@PathVariable("id") int id, Model model) { //получаем id из GET запроса и
         // передаем его в сигнатуру метода
         //в теле метода получим 1 человека по его ИД из ДАО и дадим его в представление
-        model.addAttribute("person", getPersonDAO().show(id));
+        model.addAttribute("person", peopleService.findOne(id));
         return "people/show";
     }
 
@@ -49,13 +51,15 @@ public class PeopleController {
         if (bindingResult.hasErrors()) {
             return "people/new";
         }
-        personDAO.save(person);
+//        personDAO.save(person);
+        peopleService.save(person);
         return "redirect:/people";
     }
 
     @GetMapping("/{id}/edit")
     public String edit(Model model, @PathVariable("id") int id) {
-        model.addAttribute("person", personDAO.show(id));
+//        model.addAttribute("person", personDAO.show(id));
+        model.addAttribute("person", peopleService.findOne(id));
         return "people/edit";
     }
 
@@ -67,19 +71,21 @@ public class PeopleController {
         if (bindingResult.hasErrors()) {
             return "people/edit";
         }
-        personDAO.update(id, person);
+//        personDAO.update(id, person);
+        peopleService.update(id, person);
         return "redirect:/people";
     }
 
     @DeleteMapping("/{id}")
     public String delete(@PathVariable("id") int id, @ModelAttribute("person") Person person) {
-        personDAO.delete(id);
+//        personDAO.delete(id);
+        peopleService.delete(id);
         return "redirect:/people";
     }
 
-    public PersonDAO getPersonDAO() {
-        return personDAO;
-    }
+//    public PersonDAO getPersonDAO() {
+//        return personDAO;
+//    }
 
     public PersonValidator getPersonValidator() {
         return personValidator;
