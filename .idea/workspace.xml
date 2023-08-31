@@ -12,6 +12,7 @@
     <list default="true" id="fafa1b71-832e-4668-8a48-5f6bad1b0ada" name="Changes" comment="after PersonDAO">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/chirkov/firstSpringMvcProject/DataAccessObject/PersonDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/chirkov/firstSpringMvcProject/DataAccessObject/PersonDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/chirkov/firstSpringMvcProject/util/PersonValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/chirkov/firstSpringMvcProject/util/PersonValidator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,7 +30,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="4af3602b5f429f8d9fcf4899b1e66cecdab62da5" />
+        <entry key="$PROJECT_DIR$" value="wch7_hibernate" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -68,7 +69,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "database.data.extractors.current.export.id": "Comma-separated (CSV)_id",
-    "git-widget-placeholder": "wch7__hibernate__shelf",
+    "git-widget-placeholder": "wch7__hibernate__home",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Users/Валерий Чирков/Documents/IntellijIDEA/springMvc/src/main/resources",
     "node.js.detected.package.eslint": "true",

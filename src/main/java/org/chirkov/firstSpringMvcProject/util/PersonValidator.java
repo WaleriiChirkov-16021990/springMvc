@@ -31,7 +31,4 @@ public class PersonValidator implements Validator {
 
     }
 
-    public PersonDAO getPersonDAO() {
-        return personDAO;
-    }
 }

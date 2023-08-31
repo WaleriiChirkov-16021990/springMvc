@@ -1,13 +1,14 @@
 package org.chirkov.firstSpringMvcProject.DataAccessObject;
 
 //import jakarta.persistence.Query;
-import jakarta.transaction.Transactional;
+//import jakarta.transaction.Transactional;
 import org.chirkov.firstSpringMvcProject.models.Person;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 //import org.springframework.transaction.annotation.Transactional;
 //import javax.transaction.Transactional;
 import java.util.*;
@@ -33,20 +34,22 @@ public class PersonDAO {
         return session.createQuery("select p from Person p", Person.class).getResultList();
     }
 
-    @Transactional
+    @Transactional(readOnly = true)
     public Person show(int id) {
         Session session = sessionFactory.getCurrentSession();
-        Query<Person> query = session.createQuery("select p from Person p where id= :paramId ", Person.class);
-        query.setParameter("paramId", id);
-        return query.getSingleResult();
+        return session.get(Person.class,id);
     }
 
     /*  /////////////////
         перегрузили метод show для поиска совпадений в базе данных по введенному email
         //////////////////////
      */
+    @Transactional(readOnly = true)
     public Optional<Person> show(String email) {
-        return null;
+        Session session = sessionFactory.getCurrentSession();
+        Query<Person> query = session.createQuery("select p from Person p where p.email= :emailUSer", Person.class);
+        query.setParameter("emailUSer", email);
+        return query.uniqueResultOptional();
     }
 
     @Transactional
@@ -59,13 +62,18 @@ public class PersonDAO {
     @Transactional
     public void update(int id, Person updatePerson) {
         Session session = sessionFactory.getCurrentSession();
-        session.update(updatePerson);
+        Person personToBeUpdated = session.get(Person.class,id);
+        personToBeUpdated.setName(updatePerson.getName());
+        personToBeUpdated.setSurname(updatePerson.getSurname());
+        personToBeUpdated.setAge(updatePerson.getAge());
+        personToBeUpdated.setEmail(updatePerson.getEmail());
+        personToBeUpdated.setAddress(updatePerson.getAddress());
     }
     @Transactional
     public void delete(int id) {
         Session session = sessionFactory.getCurrentSession();
-      Query<Person> q = session.createQuery("delete Person p where id = :paramIdDelete ", Person.class);
-      q.setParameter("paramIdDelete",id);
+        Person personToBeDelete = session.get(Person.class,id);
+        session.delete(personToBeDelete);
     }
 
 
