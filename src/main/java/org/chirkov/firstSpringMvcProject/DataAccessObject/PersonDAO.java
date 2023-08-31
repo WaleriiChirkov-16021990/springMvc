@@ -1,17 +1,16 @@
 package org.chirkov.firstSpringMvcProject.DataAccessObject;
 
+//import jakarta.persistence.Query;
 import jakarta.transaction.Transactional;
 import org.chirkov.firstSpringMvcProject.models.Person;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 //import org.springframework.transaction.annotation.Transactional;
 //import javax.transaction.Transactional;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.Random;
+import java.util.*;
 
 /**
  * @author : @Valerii_Chirkov $tlg
@@ -34,8 +33,12 @@ public class PersonDAO {
         return session.createQuery("select p from Person p", Person.class).getResultList();
     }
 
+    @Transactional
     public Person show(int id) {
-        return null;
+        Session session = sessionFactory.getCurrentSession();
+        Query<Person> query = session.createQuery("select p from Person p where id= :paramId ", Person.class);
+        query.setParameter("paramId", id);
+        return query.getSingleResult();
     }
 
     /*  /////////////////
@@ -46,16 +49,23 @@ public class PersonDAO {
         return null;
     }
 
-
+    @Transactional
     public void save(Person person) {
+        Session session = sessionFactory.getCurrentSession();
+//        session.save(String.valueOf(person),Person.class);
+        session.save(person);
 
     }
-
+    @Transactional
     public void update(int id, Person updatePerson) {
-
+        Session session = sessionFactory.getCurrentSession();
+        session.update(updatePerson);
     }
-
+    @Transactional
     public void delete(int id) {
+        Session session = sessionFactory.getCurrentSession();
+      Query<Person> q = session.createQuery("delete Person p where id = :paramIdDelete ", Person.class);
+      q.setParameter("paramIdDelete",id);
     }
 
 
