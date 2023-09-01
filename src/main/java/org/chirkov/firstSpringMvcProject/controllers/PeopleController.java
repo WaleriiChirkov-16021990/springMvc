@@ -30,9 +30,9 @@ public class PeopleController {
     @GetMapping
     public String index(Model model) { //получим всех людей из DAO
         model.addAttribute("people", peopleService.findAll());
-//        itemService.findByOwner(peopleService.findAll().get(0));
-//        itemService.findByItemName("Iphone");
-//        peopleService.test();
+        itemService.findByOwner(peopleService.findAll().get(0));
+        itemService.findByItemName("Iphone");
+        peopleService.test();
         return "people/index";
     }
 
