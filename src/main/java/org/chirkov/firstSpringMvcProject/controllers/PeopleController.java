@@ -2,6 +2,7 @@ package org.chirkov.firstSpringMvcProject.controllers;
 
 import jakarta.validation.Valid;
 import org.chirkov.firstSpringMvcProject.models.Person;
+import org.chirkov.firstSpringMvcProject.services.ItemService;
 import org.chirkov.firstSpringMvcProject.services.PeopleService;
 import org.chirkov.firstSpringMvcProject.util.PersonValidator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,17 +17,22 @@ public class PeopleController {
 //    private final PersonDAO personDAO;
     private final PeopleService peopleService;
     private final PersonValidator personValidator;
+    private final ItemService itemService;
 
     @Autowired
-    public PeopleController( PeopleService peopleService, PersonValidator personValidator) {
+    public PeopleController(PeopleService peopleService, PersonValidator personValidator, ItemService itemService) {
         this.peopleService = peopleService;
 //        this.personDAO = personDAO;
         this.personValidator = personValidator;
+        this.itemService = itemService;
     }
 
     @GetMapping
     public String index(Model model) { //получим всех людей из DAO
         model.addAttribute("people", peopleService.findAll());
+//        itemService.findByOwner(peopleService.findAll().get(0));
+//        itemService.findByItemName("Iphone");
+//        peopleService.test();
         return "people/index";
     }
 

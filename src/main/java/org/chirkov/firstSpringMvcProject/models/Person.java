@@ -7,6 +7,8 @@ import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import org.hibernate.validator.constraints.Range;
 
+import java.util.List;
+
 
 @Entity
 @Table(name = "Person")
@@ -35,6 +37,9 @@ public class Person {
     @Pattern(regexp = "[A-Z]\\w+, [A-Z]\\w+, \\d{6}", message = "Your address should be in this format : 'Country, City, Postal code (6 digits)'")
     @Column(name = "address")
     private String address;
+
+    @OneToMany(mappedBy = "owner")
+    private List<Item> itemList;
 
 
     public Person(String name, String surname, int age, String email, String address) {
