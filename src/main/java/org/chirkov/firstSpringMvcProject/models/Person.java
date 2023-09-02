@@ -50,6 +50,10 @@ public class Person {
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdAt;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "mood")
+    private Mood mood;
+
     @OneToMany(mappedBy = "owner")
     private List<Item> itemList;
 
@@ -88,6 +92,14 @@ public class Person {
 
     public void setSurname(String surname) {
         this.surname = surname;
+    }
+
+    public Mood getMood() {
+        return mood;
+    }
+
+    public void setMood(Mood mood) {
+        this.mood = mood;
     }
 
     public int getAge() {
