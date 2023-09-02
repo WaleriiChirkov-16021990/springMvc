@@ -19,6 +19,9 @@ public class PeopleController {
     private final PersonValidator personValidator;
     private final ItemService itemService;
 
+//    public PeopleController() {
+//    }
+
     @Autowired
     public PeopleController(PeopleService peopleService, PersonValidator personValidator, ItemService itemService) {
         this.peopleService = peopleService;
@@ -30,9 +33,10 @@ public class PeopleController {
     @GetMapping
     public String index(Model model) { //получим всех людей из DAO
         model.addAttribute("people", peopleService.findAll());
-        itemService.findByOwner(peopleService.findAll().get(0));
-        itemService.findByItemName("Iphone");
-        peopleService.test();
+//        itemService.findItemsByItemName("Iphone");
+
+//        itemService.findItemsByOwner(peopleService.findAll().get(0));
+//        peopleService.test();
         return "people/index";
     }
 

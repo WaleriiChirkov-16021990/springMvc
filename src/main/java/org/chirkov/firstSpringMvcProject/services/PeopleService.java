@@ -1,5 +1,6 @@
 package org.chirkov.firstSpringMvcProject.services;
 
+//import jakarta.transaction.Transactional;
 import org.chirkov.firstSpringMvcProject.models.Person;
 import org.chirkov.firstSpringMvcProject.repositories.PeopleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,14 +27,15 @@ public class PeopleService {
 
     public Person findOne(int id) {
         Optional<Person> foundPerson = peopleRepository.findById(id);
-
         return foundPerson.orElse(null);
+
     }
 
     @Transactional
     public void save(Person person) {
         peopleRepository.save(person);
     }
+
     @Transactional
     public void update(int id, Person updatePerson) {
         updatePerson.setId(id);
@@ -46,7 +48,7 @@ public class PeopleService {
     }
 
     public Optional<Person> findByEmail(String email) {
-        return peopleRepository.findByEmail(email).stream().findAny();
+        return peopleRepository.findByEmail(email);
     }
 
     public void test() {

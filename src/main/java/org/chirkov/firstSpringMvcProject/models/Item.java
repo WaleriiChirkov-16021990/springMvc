@@ -25,5 +25,33 @@ public class Item {
         this.itemName = itemName;
     }
 
+    public Item(String itemName, Person owner) {
+        this.itemName = itemName;
+        this.owner = owner;
+    }
 
+
+    public String getItemName() {
+        return itemName;
+    }
+
+    public void setItemName(String itemName) {
+        this.itemName = itemName;
+    }
+
+    public Person getOwner() {
+        return owner;
+    }
+
+    public void setOwner(Person owner) {
+        this.owner = owner;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }

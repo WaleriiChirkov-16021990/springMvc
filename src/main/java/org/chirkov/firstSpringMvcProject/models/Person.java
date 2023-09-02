@@ -19,14 +19,14 @@ public class Person {
     private int id;
 
     @NotEmpty(message = "Name should not be empty!")
-    @Size(min = 3,max = 33, message = "First name should 3-33 characters long!")
+    @Size(min = 3, max = 33, message = "First name should 3-33 characters long!")
     @Column(name = "name")
     private String name;
     @NotEmpty(message = "Surname should not be empty!")
-    @Size(min = 3,max = 33, message = "Surname should 3-33 characters long!")
+    @Size(min = 3, max = 33, message = "Surname should 3-33 characters long!")
     @Column(name = "surname")
     private String surname;
-    @Range(min = 1,max = 333, message = "Age should be between 1 - 333 and ")
+    @Range(min = 1, max = 333, message = "Age should be between 1 - 333 and ")
     @Column(name = "age")
     private int age;
     @NotEmpty(message = "Email should not be empty!")
@@ -53,6 +53,7 @@ public class Person {
 
     public Person() {
     }
+
     public int getId() {
         return id;
     }
@@ -99,5 +100,13 @@ public class Person {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public List<Item> getItemList() {
+        return itemList;
+    }
+
+    public void setItemList(List<Item> itemList) {
+        this.itemList = itemList;
     }
 }

@@ -105,7 +105,7 @@ public class SpringConfig implements WebMvcConfigurer {
         return properties;
     }
 
-//    @Bean
+    //    @Bean
 //    public LocalSessionFactoryBean sessionFactoryBean() {
 //        LocalSessionFactoryBean sessionFactoryBean = new LocalSessionFactoryBean();
 //        sessionFactoryBean.setDataSource(dataSource());
