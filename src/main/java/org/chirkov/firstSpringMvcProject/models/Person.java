@@ -6,7 +6,10 @@ import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import org.hibernate.validator.constraints.Range;
+import org.springframework.format.annotation.DateTimeFormat;
+//import org.springframework.data.jpa.repository.Temporal;
 
+import java.util.Date;
 import java.util.List;
 
 
@@ -37,6 +40,15 @@ public class Person {
     @Pattern(regexp = "[A-Z]\\w+, [A-Z]\\w+, \\d{6}", message = "Your address should be in this format : 'Country, City, Postal code (6 digits)'")
     @Column(name = "address")
     private String address;
+
+    @Column(name = "date_of_birth")
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "dd/MM/yyyy") // дд/мм/гггг
+    private Date dateOfBirth;
+
+    @Column(name = "created_at")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createdAt;
 
     @OneToMany(mappedBy = "owner")
     private List<Item> itemList;
@@ -108,5 +120,21 @@ public class Person {
 
     public void setItemList(List<Item> itemList) {
         this.itemList = itemList;
+    }
+
+    public Date getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(Date dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
     }
 }

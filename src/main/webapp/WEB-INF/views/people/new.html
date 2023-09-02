@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.thymeleaf.org ">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
 <head>
     <meta charset="UTF-8">
     <title>new person</title>
@@ -18,7 +17,7 @@
     <br>
     <label for="age">Enter age</label>
     <input type="number" min="0" th:field="*{age}" id="age">
-    <div style="color: crimson" th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Age error</div>
+    <div style="color: blueviolet" th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Age error</div>
     <br>
     <label for="email">Enter email</label>
     <input type="email" th:field="*{email}" id="email"/>
@@ -27,6 +26,10 @@
     <label for="address">Enter address</label>
     <input type="text" th:field="*{address}" id="address"/>
     <div style="color: #dc143c" th:if="${#fields.hasErrors('address')}" th:errors="*{address}">Address error</div>
+    <br>
+    <label for="date_of_birth">Enter date of birth (dd/mm/yyyy)</label>
+    <input type="text" th:field="*{dateOfBirth}" id="date_of_birth"/>
+    <div style="color: #dc143c" th:if="${#fields.hasErrors('dateOfBirth')}" th:errors="*{dateOfBirth}">Date of birth error</div>
     <br>
     <input type="submit" value="Create!" /><br>
 

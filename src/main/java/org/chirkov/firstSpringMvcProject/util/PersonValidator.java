@@ -31,4 +31,7 @@ public class PersonValidator implements Validator {
 
     }
 
+    public PeopleService getPeopleService() {
+        return peopleService;
+    }
 }
