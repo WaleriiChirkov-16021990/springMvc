@@ -1,6 +1,7 @@
 package org.chirkov.firstSpringMvcProject.services;
 
 import jakarta.transaction.Transactional;
+import org.chirkov.firstSpringMvcProject.models.Mood;
 import org.chirkov.firstSpringMvcProject.models.Person;
 import org.chirkov.firstSpringMvcProject.repositories.PeopleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +36,7 @@ public class PeopleService {
 //    @Transactional
     public void save(Person person) {
         person.setCreatedAt(new Date());
+        person.setMood(Mood.CALM); //4
         peopleRepository.save(person);
     }
 
