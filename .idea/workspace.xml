@@ -9,10 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fafa1b71-832e-4668-8a48-5f6bad1b0ada" name="Changes" comment="spring JPA ? Not finished task _ test commit not finished custom query">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/chirkov/firstSpringMvcProject/models/Mood.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/chirkov/firstSpringMvcProject/models/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/chirkov/firstSpringMvcProject/models/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/chirkov/firstSpringMvcProject/services/PeopleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/chirkov/firstSpringMvcProject/services/PeopleService.java" afterDir="false" />
+    <list default="true" id="fafa1b71-832e-4668-8a48-5f6bad1b0ada" name="Changes" comment="spring hibernate continue add new data from Person.java&#10;Add Enum in dataBase , EnumType.STRING">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/chirkov/firstSpringMvcProject/DataAccessObject/PersonDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/chirkov/firstSpringMvcProject/controllers/PeopleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/chirkov/firstSpringMvcProject/controllers/PeopleController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,15 +23,15 @@
       <list>
         <option value="HTML File" />
         <option value="Interface" />
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="wch8_JPA_custom_mothod_create" />
+        <entry key="$PROJECT_DIR$" value="wch9_hibernate_continue_(EnumType.STRING)" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -85,7 +84,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "database.data.extractors.current.export.id": "Comma-separated (CSV)_id",
-    "git-widget-placeholder": "wch9__hibernate__continue__(EnumType.STRING)",
+    "git-widget-placeholder": "wch9__hibernate__continue__(N-+-1)",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Users/Валерий Чирков/Documents/IntellijIDEA/springMvc/src/main/resources",
     "node.js.detected.package.eslint": "true",
@@ -554,7 +553,15 @@
       <option name="project" value="LOCAL" />
       <updated>1693676365201</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="spring hibernate continue add new data from Person.java&#10;Add Enum in dataBase , EnumType.STRING">
+      <option name="closed" value="true" />
+      <created>1693685214477</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1693685214477</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -572,7 +579,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="all config in java.Class ? &#10;Co-authored-by: Chirkov;&#10;created SecondController.java&#10;and new views" />
     <MESSAGE value="описали 2 контроллера, и научились получать параметры из&#10;GET запроса!" />
     <MESSAGE value="забираем параметры и передаем в представление с помощью шаблонизатора Thymeleaf" />
     <MESSAGE value="realise web calculate" />
@@ -597,7 +603,8 @@
     <MESSAGE value="spring JPA ? Not finished task" />
     <MESSAGE value="spring JPA ? Not finished task _ test commit" />
     <MESSAGE value="spring JPA ? Not finished task _ test commit not finished custom query" />
-    <option name="LAST_COMMIT_MESSAGE" value="spring JPA ? Not finished task _ test commit not finished custom query" />
+    <MESSAGE value="spring hibernate continue add new data from Person.java&#10;Add Enum in dataBase , EnumType.STRING" />
+    <option name="LAST_COMMIT_MESSAGE" value="spring hibernate continue add new data from Person.java&#10;Add Enum in dataBase , EnumType.STRING" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

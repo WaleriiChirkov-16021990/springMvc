@@ -1,6 +1,7 @@
 package org.chirkov.firstSpringMvcProject.controllers;
 
 import jakarta.validation.Valid;
+import org.chirkov.firstSpringMvcProject.DataAccessObject.PersonDAO;
 import org.chirkov.firstSpringMvcProject.models.Person;
 import org.chirkov.firstSpringMvcProject.services.ItemService;
 import org.chirkov.firstSpringMvcProject.services.PeopleService;
@@ -14,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 @RequestMapping("/people")
 public class PeopleController {
-//    private final PersonDAO personDAO;
+    private final PersonDAO personDAO;
     private final PeopleService peopleService;
     private final PersonValidator personValidator;
     private final ItemService itemService;
@@ -23,20 +24,21 @@ public class PeopleController {
 //    }
 
     @Autowired
-    public PeopleController(PeopleService peopleService, PersonValidator personValidator, ItemService itemService) {
+    public PeopleController(PersonDAO personDAO, PeopleService peopleService, PersonValidator personValidator, ItemService itemService) {
+        this.personDAO = personDAO;
         this.peopleService = peopleService;
-//        this.personDAO = personDAO;
         this.personValidator = personValidator;
         this.itemService = itemService;
     }
 
     @GetMapping
     public String index(Model model) { //получим всех людей из DAO
-        model.addAttribute("people", peopleService.findAll());
+//        model.addAttribute("people", peopleService.findAll());
 //        itemService.findItemsByItemName("Iphone");
 
 //        itemService.findItemsByOwner(peopleService.findAll().get(0));
 //        peopleService.test();
+        personDAO.testNPlus1();
         return "people/index";
     }
 
