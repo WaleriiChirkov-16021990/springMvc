@@ -124,12 +124,19 @@ public class Person {
         if (this == o) return true;
         if (!(o instanceof Person)) return false;
         Person person = (Person) o;
-        return getId() == person.getId() && getAge() == person.getAge() && Objects.equals(getName(), person.getName()) && Objects.equals(getSurname(), person.getSurname()) && Objects.equals(getEmail(), person.getEmail()) && Objects.equals(getAddress(), person.getAddress()) && Objects.equals(getDateOfBirth(), person.getDateOfBirth()) && Objects.equals(getCreatedAt(), person.getCreatedAt()) && getMood() == person.getMood();
+        return getId() == person.getId() && getAge() == person.getAge() && Objects.equals(getName()
+                , person.getName()) && Objects.equals(getSurname()
+                , person.getSurname()) && Objects.equals(getEmail()
+                , person.getEmail()) && Objects.equals(getAddress()
+                , person.getAddress()) && Objects.equals(getDateOfBirth()
+                , person.getDateOfBirth()) && Objects.equals(getCreatedAt()
+                , person.getCreatedAt()) && getMood() == person.getMood();
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getName(), getSurname(), getAge(), getEmail(), getAddress(), getDateOfBirth(), getCreatedAt(), getMood());
+        return Objects.hash(getId(), getName(), getSurname(), getAge(), getEmail()
+                , getAddress(), getDateOfBirth(), getCreatedAt(), getMood());
     }
 
     public String getAddress() {
